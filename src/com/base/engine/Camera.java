@@ -79,14 +79,14 @@ public class Camera
 	
 	public Vector3f getLeft()
 	{
-		Vector3f left = up.cross(forward);
+		Vector3f left = forward.cross(up);
 		left.normalize();
 		return left;
 	}
 	
 	public Vector3f getRight()
 	{
-		Vector3f right = forward.cross(up);
+		Vector3f right = up.cross(forward);
 		right.normalize();
 		return right;
 	}
