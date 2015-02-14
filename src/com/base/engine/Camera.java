@@ -26,6 +26,25 @@ public class Camera
 	public void input()
 	{
 		float movAmt = (float)(10 * Time.getDelta());
+        float rotAmt = (float)(100 * Time.getDelta());
+        
+        if(Input.getKey(Input.KEY_W))
+            move(getForward(), movAmt);
+        if(Input.getKey(Input.KEY_S))
+            move(getForward(), -movAmt);
+        if(Input.getKey(Input.KEY_A))
+            move(getLeft(), movAmt);
+        if(Input.getKey(Input.KEY_D))
+            move(getRight(), movAmt);
+        
+        if(Input.getKey(Input.KEY_UP))
+            rotateX(-rotAmt);
+        if(Input.getKey(Input.KEY_DOWN))
+            rotateX(rotAmt);
+        if(Input.getKey(Input.KEY_LEFT))
+            rotateY(-rotAmt);
+        if(Input.getKey(Input.KEY_RIGHT))
+            rotateY(rotAmt);
 	}
 	
 	// the code right below this comment is what enables the camera to be moved. 

@@ -41,17 +41,20 @@ public class Game
 	
 	public void input()
 	{
-		//these 2 sections are to display when a key has been pressed or not in the console field.
-		if(Input.getKeyDown(Input.KEY_UP))
-			System.out.println("We've just pressed up!");
-		if(Input.getKeyUp(Input.KEY_UP))
-			System.out.println("We've just released up!");
+        
+        camera.input();
+        
+// 		//these 2 sections are to display when a key has been pressed or not in the console field.
+// 		if(Input.getKeyDown(Input.KEY_UP))
+// 			System.out.println("We've just pressed up!");
+// 		if(Input.getKeyUp(Input.KEY_UP))
+// 			System.out.println("We've just released up!");
 		
-		//these 2 sections are to display when the right mouse button has been clicked, where the click was positioned, and when released.
-		if(Input.getMouseDown(1))
-			System.out.println("We've just right clicked at " + Input.getMousePosition().toString());
-		if(Input.getMouseUp(1))
-			System.out.println("We've just released right mouse button!");
+// 		//these 2 sections are to display when the right mouse button has been clicked, where the click was positioned, and when released.
+// 		if(Input.getMouseDown(1))
+// 			System.out.println("We've just right clicked at " + Input.getMousePosition().toString());
+// 		if(Input.getMouseUp(1))
+// 			System.out.println("We've just released right mouse button!");
 	}
 	
 	float temp = 0.0f;
