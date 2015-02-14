@@ -22,6 +22,12 @@ public class Camera
 		up.normalize();
 		forward.normalize();
 	}
+	
+	public void input()
+	{
+		float movAmt = (float)(10 * Time.getDelta());
+	}
+	
 	// the code right below this comment is what enables the camera to be moved. 
 	public void move(Vector3f dir, float amt)
 	{

@@ -4,6 +4,7 @@ public class Game
 	private Mesh mesh;
 	private Shader shader;
 	private Transform transform;
+	private Camera camera;
 	
 	
 	
@@ -11,6 +12,7 @@ public class Game
 	{
 		mesh = ResourceLoader.loadMesh("box.obj");//new Mesh();
 		shader = new Shader();
+		camera = new Camera();
 		
 //		Vertex[] verticies = new Vertex[] {new Vertex(new Vector3f(-1,-1,0)),
 //		                              new Vertex(new Vector3f(0,1,0)),
@@ -26,6 +28,7 @@ public class Game
 //		mesh.addVertices(verticies, indicies);
 		
 		Transform.setProjection(70f, Window.getWidth(), Window.getHeight(), 0.1f, 1000);
+		Transform.setCamera(camera);
 		transform = new Transform();
 		
 		
