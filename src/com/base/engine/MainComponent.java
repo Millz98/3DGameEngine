@@ -20,7 +20,7 @@ public class MainComponent
 		game = new Game();
 	}
 	
-	//this is to start the game
+	//this is to start the game 
 	public void start()
 	{
 		if(isRunning)
