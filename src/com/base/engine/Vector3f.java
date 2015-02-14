@@ -3,7 +3,7 @@ package com.base.engine;
 public class Vector3f 
 {
     private float x;
-    private float y;
+    private float y; //lets see if this works
     private float z;
     
     public Vector3f(float x, float y, float z)
