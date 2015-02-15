@@ -6,7 +6,29 @@ import java.util.ArrayList;
 
 public class ResourceLoader 
 {
-     public static String loadShader(String fileName)
+    public static  texture loadTexture(String fileName)
+    {
+        
+        String[] splitArray = fileName.split("\\.");
+    	 String ext = splitArray[splitArray.length - 1];
+        
+        
+        try
+        {
+           TextureLoader.getTexture(ext, new FileInputStream(new FileReader("./res/textures/" + fileName))); 
+        }
+        catch(exception e)
+            
+        {
+            e.printStackTrace();
+            System.exit(1);
+        }
+        
+        return null;
+    }
+    
+    
+    public static String loadShader(String fileName)
      {
     	 StringBuilder shaderSource = new StringBuilder();
     	 BufferedReader shaderReader = null;

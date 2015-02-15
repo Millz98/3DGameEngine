@@ -1,6 +1,8 @@
 package com.base.engine;
 
-<<<<<<< HEAD
+
+import static org.lwjgl.opengl.GL11.*;
+
 public class Texture;
 {
     private int id;
@@ -15,7 +17,7 @@ public class Texture;
         return id;
     }
 }
-=======
+
 public class Texture 
 {
     private int id; 
@@ -27,7 +29,7 @@ public class Texture
 	
 	public void bind()
 	{
-		
+		glBindTexture(GL_TEXTURE_2D, id);
 	}
 	
 	public int getID()
@@ -35,4 +37,4 @@ public class Texture
 		return id;
 	}
 }
->>>>>>> 56df2d7f1b9afba27cb0b78200593930973b7957
+
