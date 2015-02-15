@@ -1,12 +1,16 @@
 package com.base.engine;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileReader;
 import java.util.ArrayList;
 
+import org.newdawn.slick.opengl.TextureLoader;
+
 public class ResourceLoader 
 {
-    public static  texture loadTexture(String fileName)
+    public static  Texture loadTexture(String fileName)
     {
         
         String[] splitArray = fileName.split("\\.");
@@ -15,9 +19,9 @@ public class ResourceLoader
         
         try
         {
-           TextureLoader.getTexture(ext, new FileInputStream(new FileReader("./res/textures/" + fileName))); 
+           TextureLoader.getTexture(ext, new FileInputStream(new File("./res/textures/" + fileName))); 
         }
-        catch(exception e)
+        catch(Exception e)
             
         {
             e.printStackTrace();
