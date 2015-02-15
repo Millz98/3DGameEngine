@@ -18,8 +18,10 @@ public class ResourceLoader
         
         
         try
-        {
-           TextureLoader.getTexture(ext, new FileInputStream(new File("./res/textures/" + fileName))); 
+        {         //below is the code that tells the engine what folder the texture files are located in.
+           int id = TextureLoader.getTexture(ext, new FileInputStream(new File("./res/textures/" + fileName))).getTextureID();
+           
+           return new Texture(id);
         }
         catch(Exception e)
             

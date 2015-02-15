@@ -5,7 +5,7 @@ public class MainComponent
 	// these 4 methods set the size of the window and the title that will be shown at the top border, and fps cap.
 	public static final int WIDTH = 800;
 	public static final int HEIGHT = 600;
-	public static final String TITLE = "3D Engine";
+	public static final String TITLE = "Jericho Engine";
 	public static final double FRAME_CAP = 5000.0;
 	
 	//this variable is to tell us if our engine is actually running.

@@ -1,7 +1,21 @@
 package com.base.engine;
 
-import static org.lwjgl.opengl.GL11.*;
-import static org.lwjgl.opengl.GL30.*;
+import static org.lwjgl.opengl.GL11.GL_BACK;
+import static org.lwjgl.opengl.GL11.GL_COLOR_BUFFER_BIT;
+import static org.lwjgl.opengl.GL11.GL_CULL_FACE;
+import static org.lwjgl.opengl.GL11.GL_CW;
+import static org.lwjgl.opengl.GL11.GL_DEPTH_BUFFER_BIT;
+import static org.lwjgl.opengl.GL11.GL_DEPTH_TEST;
+import static org.lwjgl.opengl.GL11.GL_TEXTURE_2D;
+import static org.lwjgl.opengl.GL11.GL_VERSION;
+import static org.lwjgl.opengl.GL11.glClear;
+import static org.lwjgl.opengl.GL11.glClearColor;
+import static org.lwjgl.opengl.GL11.glCullFace;
+import static org.lwjgl.opengl.GL11.glDisable;
+import static org.lwjgl.opengl.GL11.glEnable;
+import static org.lwjgl.opengl.GL11.glFrontFace;
+import static org.lwjgl.opengl.GL11.glGetString;
+import static org.lwjgl.opengl.GL30.GL_FRAMEBUFFER_SRGB;
 
 public class RenderUtil 
 {
@@ -11,6 +25,16 @@ public class RenderUtil
     	 //TODO: Stencil Buffer
     	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
      }
+     
+     // a method for me to enable or disable textures without importing OpenGL
+     public static void setTextures(boolean enabled)
+     {
+    	 if(enabled)
+    		glEnable(GL_TEXTURE_2D);
+    	 else
+    		 glDisable(GL_TEXTURE_2D);
+     }
+     
      
      // This method is to tell the code above that not only are you clearing the screen, but to clear it all black.
      public static void initGraphics()
@@ -24,6 +48,7 @@ public class RenderUtil
     	
     	//TODO: Depth clamp for later
     	
+    	glEnable(GL_TEXTURE_2D);
     	glEnable(GL_FRAMEBUFFER_SRGB); //this is enabled for free gamma correction.
      }
      
