@@ -37,15 +37,35 @@ public class Camera
         if(Input.getKey(Input.KEY_D))
             move(getRight(), movAmt);
         
-        if(Input.getKey(Input.KEY_UP))
-            rotateX(-rotAmt);
-        if(Input.getKey(Input.KEY_DOWN))
-            rotateX(rotAmt);
-        if(Input.getKey(Input.KEY_LEFT))
-            rotateY(-rotAmt);
-        if(Input.getKey(Input.KEY_RIGHT))
-            rotateY(rotAmt);
+        if(mouseLocked)
+        {
+            Vector2f deltaPos = Input.getMousePosition().sub(centerPosition);
+            
+            boolean rotY = deltaPos.getX() != 0;
+            boolean rotX = deltaPos.getY() != 0;
+            
+            if(rotY)
+                rotateY(deltaPos.getX() * sensitivity);
+            if(rotX)
+                rotateX(-deltaPos.getY() * sensitivity);
+            
+            if(rotY || rotX)
+                Input.setMousePosition(new Vector2f(Window.getWidth()/2, Window.getHeight()/2));
+            
+        }
+            
+        
+//         if(Input.getKey(Input.KEY_UP))
+//             rotateX(-rotAmt);
+//         if(Input.getKey(Input.KEY_DOWN))
+//             rotateX(rotAmt);
+//         if(Input.getKey(Input.KEY_LEFT))
+//             rotateY(-rotAmt);
+//         if(Input.getKey(Input.KEY_RIGHT))
+//             rotateY(rotAmt);
 	}
+    
+    
 	
 	// the code right below this comment is what enables the camera to be moved. 
 	public void move(Vector3f dir, float amt)

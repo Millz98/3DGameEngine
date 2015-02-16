@@ -191,12 +191,12 @@ public class Input
 		return new Vector2f(Mouse.getX(), Mouse.getY());
 	}
 
-	public static void setMousePosition(Vector2f pos)
+	public static void setMousePosition(Vector2f pos) //shows the mouse cursor
 	{
 		Mouse.setCursorPosition((int)pos.getX(), (int)pos.getY());
 	}
 
-	public static void setCursor(boolean enabled)
+	public static void setCursor(boolean enabled) //allows you to enable/disable the mouse cursor.
 	{
 		Mouse.setGrabbed(!enabled);
 	}

@@ -35,7 +35,12 @@ public class RenderUtil
     		 glDisable(GL_TEXTURE_2D);
      }
      
-     
+     public static void setClearColor(Vector3f color)
+     {
+         glClearColor(color.getX(), color.getY(), color.getZ(), 1.0f);
+     }
+    
+    
      // This method is to tell the code above that not only are you clearing the screen, but to clear it all black.
      public static void initGraphics()
      {
