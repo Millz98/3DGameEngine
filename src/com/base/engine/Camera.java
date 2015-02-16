@@ -19,17 +19,29 @@ public class Camera
 		this.pos = pos;
         
         this.forward = forward.normalized();
-+		this.up = up.normalized();
+		this.up = up.normalized();
 	}
     
     boolean mouseLocked = false;
-+	Vector2f centerPosition = new Vector2f(Window.getWidth()/2, Window.getHeight()/2);
+	Vector2f centerPosition = new Vector2f(Window.getWidth()/2, Window.getHeight()/2);
 	
 	public void input()
 	{
 		float sensitivity = 0.5f;
         float movAmt = (float)(10 * Time.getDelta());
-        float rotAmt = (float)(100 * Time.getDelta());
+        //float rotAmt = (float)(100 * Time.getDelta());
+        
+        if(Input.getKey(Input.KEY_ESCAPE))
+		{
+			Input.setCursor(true);
+			mouseLocked = false;
+		}
+		if(Input.getMouseDown(0))
+		{
+			Input.setMousePosition(centerPosition);
+			Input.setCursor(false);
+			mouseLocked = true;
+		}
         
         if(Input.getKey(Input.KEY_W))
             move(getForward(), movAmt);
@@ -57,7 +69,7 @@ public class Camera
             
         }
             
-        
+        // these keys below were to enable me to rotate the camera around the object with the arrow keys
 //         if(Input.getKey(Input.KEY_UP))
 //             rotateX(-rotAmt);
 //         if(Input.getKey(Input.KEY_DOWN))
@@ -96,16 +108,12 @@ public class Camera
 	
 	public Vector3f getLeft()
 	{
-		Vector3f left = forward.cross(up);
-		left.normalize();
-		return left;
+		return forward.cross(up).normalized();
 	}
 	
 	public Vector3f getRight()
 	{
-		Vector3f right = up.cross(forward);
-		right.normalize();
-		return right;
+		return up.cross(forward).normalized();
 	}
 
 	public Vector3f getPos() 

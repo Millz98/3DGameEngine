@@ -160,45 +160,44 @@ public class Input
 	{
 		return Keyboard.isKeyDown(keyCode);
 	}
-
+	
 	public static boolean getKeyDown(int keyCode)
 	{
 		return getKey(keyCode) && !lastKeys[keyCode];
 	}
-
+	
 	public static boolean getKeyUp(int keyCode)
 	{
 		return !getKey(keyCode) && lastKeys[keyCode];
 	}
-
+	
 	public static boolean getMouse(int mouseButton)
 	{
 		return Mouse.isButtonDown(mouseButton);
 	}
-
+	
 	public static boolean getMouseDown(int mouseButton)
 	{
 		return getMouse(mouseButton) && !lastMouse[mouseButton];
 	}
-
+	
 	public static boolean getMouseUp(int mouseButton)
 	{
 		return !getMouse(mouseButton) && lastMouse[mouseButton];
 	}
-
+	
 	public static Vector2f getMousePosition()
 	{
 		return new Vector2f(Mouse.getX(), Mouse.getY());
 	}
-
-	public static void setMousePosition(Vector2f pos) //shows the mouse cursor
+	
+	public static void setMousePosition(Vector2f pos)
 	{
 		Mouse.setCursorPosition((int)pos.getX(), (int)pos.getY());
 	}
-
-	public static void setCursor(boolean enabled) //allows you to enable/disable the mouse cursor.
+	
+	public static void setCursor(boolean enabled)
 	{
 		Mouse.setGrabbed(!enabled);
 	}
 }
-	
