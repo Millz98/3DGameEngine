@@ -15,17 +15,20 @@ public class Camera
 	
 	public Camera(Vector3f pos, Vector3f forward, Vector3f up)
 	{
-		this.pos = pos;
-		this.forward = forward;
-		this.up = up;
 		
-		up.normalize();
-		forward.normalize();
+		this.pos = pos;
+        
+        this.forward = forward.normalized();
++		this.up = up.normalized();
 	}
+    
+    boolean mouseLocked = false;
++	Vector2f centerPosition = new Vector2f(Window.getWidth()/2, Window.getHeight()/2);
 	
 	public void input()
 	{
-		float movAmt = (float)(10 * Time.getDelta());
+		float sensitivity = 0.5f;
+        float movAmt = (float)(10 * Time.getDelta());
         float rotAmt = (float)(100 * Time.getDelta());
         
         if(Input.getKey(Input.KEY_W))
@@ -75,24 +78,20 @@ public class Camera
 	
 	public void rotateY(float angle)
 	{
-		Vector3f Haxis = yAxis.cross(forward);
-		Haxis.normalize();
+		Vector3f Haxis = yAxis.cross(forward).normalized();
 		
-		forward = forward.rotate(angle, yAxis).normalize();
+		forward = forward.rotate(angle, yAxis).normalized();
 		
-		up = forward.cross(Haxis);
-		up.normalize();
+		up = forward.cross(Haxis).normalized();
 	}
 	
 	public void rotateX(float angle)
 	{
-		Vector3f Haxis = yAxis.cross(forward);
-		Haxis.normalize();
+		Vector3f Haxis = yAxis.cross(forward).normalized();
 		
-		forward = forward.rotate(angle, Haxis).normalize();
+		forward = forward.rotate(angle, Haxis).normalized();
 		
-		up = forward.cross(Haxis);
-		up.normalize();
+		up = forward.cross(Haxis).normalized();
 	}
 	
 	public Vector3f getLeft()
