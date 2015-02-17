@@ -22,13 +22,9 @@ public class Quaternion
     
     public Quaternion normalize()
     {
-    	float length = length();
-    	x /= length;
-    	y /= length;
-    	z /= length;
-    	w /= length;
-    	
-    	return this;
+        float length = length();
+		
+		return new Quaternion(x / length, y / length, z / length, w / length);
     }
     
     public Quaternion conjugate()

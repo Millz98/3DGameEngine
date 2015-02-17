@@ -62,4 +62,19 @@ public class RenderUtil
      {
     	 return glGetString(GL_VERSION);
      }
+
+	public static void unbindTextures() 
+	{
+		glBindTexture(GL_TEXTURE_2D, 0);
+	}
+	
+	private static void glBindTexture(int glTexture2d, int i) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public static void setClearColor1(Vector3f color)
+	{
+		glClearColor(color.getX(), color.getY(), color.getZ(), 1.0f);
+	}
 }
