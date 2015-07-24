@@ -12,9 +12,10 @@ public class Game
 	public Game()
 	{
 		mesh = new Mesh(); //ResourceLoader.loadMesh("box.obj")
-		material = new Material(ResourceLoader.loadTexture("test.png"), new Vector3f(0,1,1));
-	    shader = BasicShader.getInstance();
+		material = new Material(ResourceLoader.loadTexture("test.png"), new Vector3f(1,1,1));
+	    shader = PhongShader.getInstance();
 		camera = new Camera();
+		transform = new Transform();
 		
 		Vertex[] verticies = new Vertex[] {new Vertex(new Vector3f(-1,-1,0), new Vector2f(0,0)),
 		                              new Vertex(new Vector3f(0,1,0), new Vector2f (0.5f,0)),
@@ -31,7 +32,9 @@ public class Game
 		
 		Transform.setProjection(70f, Window.getWidth(), Window.getHeight(), 0.1f, 1000);
 		Transform.setCamera(camera);
-		transform = new Transform();
+		
+		// the line below is what sets the light of a surface if the light isn't directly hitting it
+		PhongShader.setAmbientLight(new Vector3f(0.1f,0.1f,0.1f));
 		
 		
 		
