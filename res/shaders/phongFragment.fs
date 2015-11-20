@@ -5,10 +5,6 @@ in vec3 normal0;
 
 out vec4 fragColor;
 
-uniform vec3 baseColor;
-uniform vec3 ambientLight;
-uniform sampler2D sampler;
-
 struct BaseLight
 {
    vec3 color;
@@ -21,26 +17,34 @@ struct BaseLight
       BaseLight base;
 	  vec3 direction;
  };
+ 
+uniform vec3 baseColor;
+uniform vec3 ambientLight;
+uniform sampler2D sampler;
+
+uniform DirectionalLight directionalLight;
+
+
  //CalcLight is to calculate where the light is coming from
  vec4 calcLight(BaseLight base, vec3 direction, vec3 normal)
  {
-    float diffuseFactor = dot(-direction, normal);
+    float diffuseFactor = dot(normal, -direction);
 	
 	vec4 diffuseColor = vec4(0,0,0,0);
 	
 	if(diffuseFactor > 0)
-	(
+	{
 	    diffuseColor = vec4(base.color, 1.0) * base.intensity * diffuseFactor;
-	)
+	}
 	
 	return diffuseColor;
  }
  
  vec4 calcDirectionalLight(DirectionalLight directionalLight, vec3 normal)
  
- (
-    return calcLight(directionalLight.base, directionalLight.direction, normal); 
- )
+ {
+    return calcLight(directionalLight.base, -directionalLight.direction, normal); 
+ }
  
 
  
@@ -52,6 +56,10 @@ struct BaseLight
 	
 	if(textureColor != vec4(0,0,0,0))
         color *= textureColor;
+		
+	vec3 normal = normalize(normal0);
+
+    totalLight += calcDirectionalLight(directionalLight, normal);	
 		
 		
 	fragColor = color * totalLight;	

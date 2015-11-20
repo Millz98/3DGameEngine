@@ -28,14 +28,14 @@ public class Game
 				                    0,1,2,
 				                    0,2,3};
 		
-		mesh.addVertices(verticies, indicies);
+		mesh.addVertices(verticies, indicies, true);
 		
 		Transform.setProjection(70f, Window.getWidth(), Window.getHeight(), 0.1f, 1000);
 		Transform.setCamera(camera);
 		
 		// the line below is what sets the light of a surface if the light isn't directly hitting it
 		PhongShader.setAmbientLight(new Vector3f(0.1f,0.1f,0.1f));
-		
+		PhongShader.setDirectionalLight(new DirectionalLight(new BaseLight(new Vector3f(1,1,1), 0.8f), new Vector3f(1,1,1)));
 		
 		
 	}
