@@ -15,10 +15,11 @@ import static org.lwjgl.opengl.GL11.glDisable;
 import static org.lwjgl.opengl.GL11.glEnable;
 import static org.lwjgl.opengl.GL11.glFrontFace;
 import static org.lwjgl.opengl.GL11.glGetString;
-import static org.lwjgl.opengl.GL30.GL_FRAMEBUFFER_SRGB;
 
 public class RenderUtil 
 {
+	private static final int GL_DEPTH_CLAMP = 0;
+
 	// below is the method that clears the screen and everything on it. 
      public static void clearScreen()
      {
