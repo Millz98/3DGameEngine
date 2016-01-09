@@ -79,3 +79,5 @@ public class RenderUtil
 		glClearColor(color.getX(), color.getY(), color.getZ(), 1.0f);
 	}
 }
+
+// Video resumes the point light part 1 at 12:00 with new classes
