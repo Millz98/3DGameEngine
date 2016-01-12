@@ -27,9 +27,7 @@ struct BaseLight
      float linear;
      float exponent;
 
-      float constant;
-	  float linear;
-	  float exponent;
+ 
  };
  
  struct PointLight
@@ -38,8 +36,6 @@ struct BaseLight
       Attenuation atten;
       vec3 position;
 
-	  Attenuation atten;
-	  vec3 position;
 
  };
  
