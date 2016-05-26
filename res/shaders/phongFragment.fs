@@ -48,8 +48,7 @@ uniform float specularIntensity;
 uniform float specularPower;
 
 uniform DirectionalLight directionalLight;
-uniform PointLight pointLights(MAX_POINT_LIGHTS);
-
+uniform PointLight pointLights[MAX_POINT_LIGHTS];
 
  //CalcLight is to calculate where the light is coming from
  vec4 calcLight(BaseLight base, vec3 direction, vec3 normal)
@@ -102,26 +101,9 @@ uniform PointLight pointLights(MAX_POINT_LIGHTS);
     return color / attenuation;                     
  }
 
- vec4 calcPointLight(PointLight pointLight, vec3 normal);
- {
-      vec3 lightDirection = worldPos0 - pointLight.position;
-      float distanceToPoint = length(lightDirection);
-      lightDirection = normalize(lightDirection);
-
-      vec4 color = calcLight(pointLight.base, lightDirection, normal);
-
-      float attenuation = pointLight.atten.constant +
-                          pointLight.atten.linear * distanceToPoint +
-                          pointLight.atten.exponent * distanceToPoint * distanceToPoint +
-                          0.0001;
-
-return color / attenuation;						  
- }
  
-
-
  
- void main()
+void main()
 {
     vec4 totalLight = vec4 (ambientLight,1);
     vec4 color = vec4(baseColor, 1);
