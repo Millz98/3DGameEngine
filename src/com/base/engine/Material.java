@@ -30,7 +30,7 @@ public class Material
 		this.texture = texture;
 	}
 
-	public Vector3f getColor()
+	   public Vector3f getColor()
 	{
 		return color;
 	}

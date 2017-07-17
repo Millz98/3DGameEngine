@@ -10,6 +10,8 @@ public class Game
 	PointLight pLight1 = new PointLight(new BaseLight(new Vector3f(1,0.5f,0), 0.8f), new Attenuation(0,0,1), new Vector3f(-2,0,5f), 6);
 	PointLight pLight2 = new PointLight(new BaseLight(new Vector3f(0,0.5f,1), 0.8f), new Attenuation(0,0,1), new Vector3f(2,0,7f), 6);
 	
+	SpotLight sLight1 = new SpotLight(new PointLight(new BaseLight(new Vector3f(1,0.5f,0), 0.8f), new Attenuation(0,0,1), new Vector3f(-2,0,5f), 6),
+	                                  new Vector3f(1,1,1), 0.7f);
 	public Game()
 	{
 		mesh = new Mesh(); //ResourceLoader.loadMesh("box.obj")
@@ -65,7 +67,9 @@ public class Game
 		
 		
 		
-		PhongShader.setPointLight(new PointLight[]{pLight1, pLight2});
+		//PhongShader.setPointLight(new PointLight[]{pLight1, pLight2});
+		PhongShader.setSpotLights(new SpotLight[]{sLight1});
+		
 		
 	}
 	
